@@ -119,6 +119,9 @@ the remoted machine, need to have SSH and Python installed
 
 #### Configure SSH keys
 
+1. One key for all hosts 
+2. One key per host
+3. one key per group of host 
 
 
 
