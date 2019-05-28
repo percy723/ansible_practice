@@ -1,0 +1,15 @@
+---
+ - hosts: local
+   connection: local
+   gather_facts: False
+
+   tasks:
+    
+   - ec2_instance_facts:
+       region: ap-southeast-1
+       # instance_ids: "{{ id }}"
+     register: ec2_metadata
+
+   # - debug: msg="{{ ec2_metadata.instances }}"
+
+   - debug: msg="{{ ec2_metadata }}"
