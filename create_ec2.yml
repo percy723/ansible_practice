@@ -15,7 +15,7 @@
 
     - name: Save private key
       tags: save_private_key
-      copy: content="{{ ec2_key_result.key.private_key }}" dest="./.keys/{{ key_name }}" mode=0600
+      copy: content="{{ ec2_key_result.key.private_key }}" dest="/etc/ansible/.keys/{{ key_name }}" mode=0600
       when: ec2_key_result.changed
 
     ### create instance ###
