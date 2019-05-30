@@ -22,11 +22,11 @@
 
     - name: delete keypair
       ec2_key:
-        name: "{{ ec2_metadata.key_name }}"
+        name: "{{ ec2_metadata.instances[0].key_name }}"
         state: absent
 
     - name: remove local private key
       file: 
-       path: "./.keys/{{ ec2_metadata.key_name }}"
+       path: "./.keys/{{ ec2_metadata.instances[0].key_name }}"
        state: absent
-      with_items: "{{ ec2_metadata.key_name }}" 
+      with_items: "{{ ec2_metadata.instances[0].key_name }}" 
