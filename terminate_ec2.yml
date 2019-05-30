@@ -16,7 +16,7 @@
       ec2: 
         instance_ids: "{{ id }}"
         region: ap-southeast-1
-        vpc_subnet_id: "{{ subnet_id }}"
+        vpc_subnet_id: "{{ sid }}"
         wait: True
         state: absent
 
