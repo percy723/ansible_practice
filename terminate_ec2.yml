@@ -12,7 +12,7 @@
       register: ec2_metadata
 
     - name: terminate ec2
-      tags: terminate_ec2
+      # tags: terminate_ec2
       ec2: 
         instance_ids: "{{ id }}"
         region: ap-southeast-1
