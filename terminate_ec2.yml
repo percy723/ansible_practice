@@ -23,6 +23,7 @@
     - name: delete keypair
       ec2_key:
         name: "{{ ec2_metadata.instances[0].key_name }}"
+        region: "{{ region }}"
         state: absent
 
     - name: remove local private key
