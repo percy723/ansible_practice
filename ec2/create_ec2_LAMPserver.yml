@@ -1,0 +1,51 @@
+---
+ - hosts: local
+   connection: local 
+   gather_facts: False
+
+   tasks: 
+
+    ### keypair ###
+    - name: Create EC2 keypair
+      tags: create_ec2_keypair
+      ec2_key:
+          name: "{{ key_name }}"
+          region: "{{ region }}"
+      register: ec2_key_result
+
+    - name: Save private key
+      tags: save_private_key
+      copy: content="{{ ec2_key_result.key.private_key }}" dest="/etc/ansible/.keys/{{ key_name }}" mode=0600
+      when: ec2_key_result.changed
+
+    ### create instance ###
+    - name: Create AWS EC2 LAMP server
+      tags: create_ec2_LAMP      
+      ec2:
+       key_name: "{{ key_name }}"
+       instance_type: t2.micro
+       image: ami-0b5a47f8865280111
+       wait: yes
+       count: 1
+       vpc_subnet_id: "{{ sid }}"
+       region: "{{ region }}"
+       group: "{{ group }}"
+       assign_public_ip: yes
+       user_data: |
+                  #!/bin/bash
+                  yum update -y
+                  amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
+                  yum install -y httpd mariadb-server
+                  systemctl start httpd
+                  systemctl enable httpd
+                  usermod -a -G apache ec2-user
+                  chown -R ec2-user:apache /var/www
+                  chmod 2775 /var/www
+                  find /var/www -type d -exec chmod 2775 {} \;
+                  find /var/www -type f -exec chmod 0664 {} \;
+                  echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
+                  mysql -u root
+                  FLUSH PRIVILEGES; ALTER USER 'root'@'localhost' IDENTIFIED BY 'admin123QWE$%^';
+                  exit
+                  systemctl start mariadb
+                  systemctl enable mariadb
