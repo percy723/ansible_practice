@@ -1,0 +1,20 @@
+---
+ - hosts: local
+   connection: local
+   gather_facts: False
+   vars: 
+    instance_ids:
+      - 'i-0e0602ddb774065d9'
+      - 'i-0d6141af1d1d16c99'
+      - 'i-0d13cb99f016b5046'
+    region: "{{ region }}"
+
+   tasks: 
+    - name: start ec2 group
+      tags: start_ec2_group
+      ec2: 
+        instance_ids: "{{ instance_ids }}"
+        region: "{{ region }}"
+        vpc_subnet_id: subnet-028b6d64
+        wait: True
+        state: running
