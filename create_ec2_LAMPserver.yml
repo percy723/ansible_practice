@@ -44,8 +44,11 @@
                   find /var/www -type d -exec chmod 2775 {} \;
                   find /var/www -type f -exec chmod 0664 {} \;
                   echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
-                  mysql -u root
-                  FLUSH PRIVILEGES; ALTER USER 'root'@'localhost' IDENTIFIED BY 'admin123QWE$%^';
-                  exit
                   systemctl start mariadb
                   systemctl enable mariadb
+                  systemctl stop mariadb
+                  mysql -u root
+                  FLUSH PRIVILEGES;
+                  ALTER USER 'root'@'localhost' IDENTIFIED BY 'admin123QWE$%^';
+                  exit
+                  systemctl start mariadb
