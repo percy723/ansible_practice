@@ -9,6 +9,7 @@
      s3_sync:
       bucket: "{{ bucket }}"
       file_root: "{{ folder }}"
+      region: "{{ region}}"
       # mime_map: 
       #   .yml: "{{ yml }}"
       #   .json: "{{ json }}"
