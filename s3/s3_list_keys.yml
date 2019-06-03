@@ -14,4 +14,4 @@
     register: s3_list_keys
       
       
-   - debug: msg="{{ s3_list_keys }}"
+  - debug: msg="{{ s3_list_keys }}"
