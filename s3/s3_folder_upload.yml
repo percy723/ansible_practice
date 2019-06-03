@@ -1,0 +1,19 @@
+---
+ - hosts: local
+   connection: local
+   gather_facts: False
+
+   tasks:
+    
+   - name: upload folder to s3
+     s3_sync:
+      bucket: "{{ bucket }}"
+      file_root: "{{ folder }}"
+      # mime_map: 
+      #   .yml: "{{ yml }}"
+      #   .json: "{{ json }}"
+      # key_prefix: "{{ key_prefiex }}"
+      # permission: "{{ permission }}"
+      # cache_control: "{{ cache_control }}"
+      # include: "{{ include }}"
+      # exclude: "{{ exclude }}"      
