@@ -31,7 +31,7 @@ playbook for aws ec2 and s3
 
   https://docs.ansible.com/ansible/latest/modules/s3_bucket_module.html#s3-bucket-module
 
-  [  ]  - create bucket
+  [OK]  - create bucket (bucket name must be universially unique)
 
   [  ]  - delete bucket
   
