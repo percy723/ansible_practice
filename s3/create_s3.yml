@@ -2,3 +2,13 @@
  - hosts: local
    connection: local
    gather_facts: False
+
+   task:
+
+   - name: create s3 bucket
+     s3_bucket:
+      name: "{{ s3_name }}"
+      region: "{{ region }}"
+      # policy: "{{ lookup('file', 'policy.json')}}"
+      # requester_pay: yes
+      # versioning: yes
