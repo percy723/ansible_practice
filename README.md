@@ -39,13 +39,13 @@ playbook for aws ec2 and s3
   
   [OK]  - PUT
   
-  [  ]  - CORS
+  [OK]  - CORS
   
   [  ]  - lifecycle rule
   
   [OK]  - logging
   
-  [  ]  - s3_sync (multiple files upload)
+  [OK]  - s3_sync (multiple files upload)
   
   [  ]  - configure bucket as website (static hosting)
   
