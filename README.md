@@ -52,3 +52,8 @@ playbook for aws ec2 and s3
 ### - Zabbix:
 
   https://docs.ansible.com/ansible/latest/modules/list_of_monitoring_modules.html#zabbix
+  
+
+### - Other basic functions:
+  
+  - Run command on remote node [command.yml]
