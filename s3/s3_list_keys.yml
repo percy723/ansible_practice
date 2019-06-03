@@ -1,0 +1,13 @@
+---
+- hosts: local
+  connection: local
+  gather_facts: False
+  tasks:
+
+  - name: get operation
+    aws_s3:
+      bucket: "{{ bucket }}"
+      mode: list
+      # prefix: "{{ prefix }}"
+      # marker: "{{ marker }}"
+      # max_keys: "{{ max_keys }}"
