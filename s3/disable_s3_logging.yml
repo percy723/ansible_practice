@@ -1,0 +1,11 @@
+---
+- hosts: local
+  connection: local
+  gather_facts: False
+  tasks:
+
+  - name: Remove loggings on an s3 bucket
+    tags: remove_log
+    s3_logging:
+      name: "{{ website }}"
+      state: absent
