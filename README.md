@@ -49,3 +49,6 @@ playbook for aws ec2 and s3
   
   [  ]  - configure bucket as website (static hosting)
   
+### - Zabbix:
+
+  https://docs.ansible.com/ansible/latest/modules/list_of_monitoring_modules.html#zabbix
