@@ -1,0 +1,11 @@
+---
+ - hosts: local
+   connection: local
+   gather_facts: False
+
+   tasks:
+    
+   - aws_s3_bucket_facts:
+     register: s3_facts
+
+   - debug: msg="{{ s3_facts }}"
