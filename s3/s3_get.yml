@@ -1,0 +1,13 @@
+---
+- hosts: local
+  connection: local
+  gather_facts: False
+  tasks:
+
+  - name: get operation
+    aws_s3:
+      bucket: "{{ bucket }}"
+      object: "{{ object_path }}"
+      dest: "{{ dest_path }}"
+      # version: "{{ version }}"
+      mode: get
