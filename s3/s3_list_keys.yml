@@ -11,3 +11,7 @@
       # prefix: "{{ prefix }}"
       # marker: "{{ marker }}"
       # max_keys: "{{ max_keys }}"
+    register: s3_list_keys
+      
+      
+   - debug: msg="{{ s3_list_keys }}"
