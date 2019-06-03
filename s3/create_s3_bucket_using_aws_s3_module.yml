@@ -1,0 +1,13 @@
+---
+- hosts: local
+  connection: local
+  gather_facts: False
+  tasks:
+
+  - name: create bucket with aws_s3 module
+    aws_s3:
+      bucket: "{{ bucket }}"
+      mode: create
+      permission: "{{ permission }}"
+      # object: "{{ object_path }}"
+      region: "{{ region }}"
