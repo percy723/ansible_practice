@@ -1,0 +1,13 @@
+---
+- hosts: local
+  connection: local
+  gather_facts: False
+  tasks:
+
+  - name: Enable logging of s3 bucket - website to s3 bucket
+    tags: enable_log
+    s3_logging:
+      name: "{{ website }}"
+      target_bucket: "{{ target_bucket }}"
+      target_prefix: "{{ target_prefix }}"
+      state: present
