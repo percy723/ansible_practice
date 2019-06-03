@@ -33,17 +33,17 @@ playbook for aws ec2 and s3
 
   [OK]  - create bucket (bucket name must be universially unique)
 
-  [  ]  - delete bucket
+  [OK]  - delete bucket
   
-  [  ]  - GET
+  [OK]  - GET
   
-  [  ]  - PUT
+  [OK]  - PUT
   
   [  ]  - CORS
   
   [  ]  - lifecycle rule
   
-  [  ]  - logging
+  [OK]  - logging
   
   [  ]  - s3_sync (multiple files upload)
   
