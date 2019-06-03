@@ -1,0 +1,12 @@
+---
+- hosts: local
+  connection: local
+  gather_facts: False
+  tasks:
+
+  - name: delete s3 object from a bucket
+    aws_s3:
+      bucket: "{{ bucket }}"
+      object: "{{ object_path }}"
+      region: "{{ region }}"
+      mode: delobj
