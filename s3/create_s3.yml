@@ -1,14 +1,13 @@
 ---
- - hosts: local
-   connection: local
-   gather_facts: False
+- hosts: local
+  connection: local
+  gather_facts: False
+  tasks:
 
-   task:
-
-   - name: create s3 bucket
-     s3_bucket:
-      name: "{{ s3_name }}"
-      region: "{{ region }}"
-      # policy: "{{ lookup('file', 'policy.json')}}"
-      # requester_pay: yes
-      # versioning: yes
+  - name: create s3 bucket
+    s3_bucket:
+     name: "{{ s3_name }}"
+     region: "{{ region }}"
+     # policy: "{{ lookup('file', 'policy.json')}}"
+     # requester_pay: yes
+     # versioning: yes
