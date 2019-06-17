@@ -7,7 +7,7 @@
 
     # gather info of instance specified
     - ec2_instance_facts:
-       region: ap-southeast-1
+       region: "{{ region }}"
        instance_ids: "{{ id }}" 
       register: ec2_metadata
 
@@ -15,7 +15,7 @@
       tags: terminate_ec2
       ec2: 
         instance_ids: "{{ id }}"
-        region: ap-southeast-1
+        region: "{{ region }}"
         vpc_subnet_id: "{{ sid }}"
         wait: True
         state: absent
