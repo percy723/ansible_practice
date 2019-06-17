@@ -2,7 +2,9 @@
 
 playbook for aws ec2 and s3
 
+### <i>BUG</i>
 
+- ec2_key module region unresolve
 
 ### TODO
 
