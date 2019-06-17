@@ -7,7 +7,7 @@
 
     # gather info of instance specified
     - ec2_instance_facts:
-       region: "{{ region }}"
+       region: ap-southeast-1
        instance_ids: "{{ id }}" 
       register: ec2_metadata
 
@@ -15,7 +15,7 @@
       tags: terminate_ec2
       ec2: 
         instance_ids: "{{ id }}"
-        region: "{{ region }}"
+        region: ap-southeast-1
         vpc_subnet_id: "{{ sid }}"
         wait: True
         state: absent
@@ -23,7 +23,7 @@
     - name: delete keypair
       ec2_key:
         name: "{{ ec2_metadata.instances[0].key_name }}"
-        region: "{{ region }}"
+        region: ap-southeast-1
         state: absent
 
     - name: remove local private key
