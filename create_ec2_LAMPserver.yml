@@ -46,4 +46,4 @@
                   echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
                   sudo systemctl start mariadb.service
                   sudo systemctl enable mariadb.service
-                  mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'admin123QWE$%^'; FLUSH PRIVILEGES; exit"
+                  mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'admin123'; FLUSH PRIVILEGES; exit"
